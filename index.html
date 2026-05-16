@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Adebola Isiak — Faitheroic Generation & Neolife Independent Distributor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --gold: #C09B4E; --gold-light: #E8D5A3; --gold-pale: #FAF5E9;
+  --forest: #1E3A2F; --forest-mid: #2E5440; --forest-light: #3D6B50;
+  --cream: #FDFAF4; --dark: #111510; --text: #2A2A2A;
+  --text-muted: #6B6B6B; --white: #FFFFFF; --border: rgba(192,155,78,0.25);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); overflow-x: hidden; }
+
+/* NAV */
+nav { position:fixed; top:0; left:0; right:0; z-index:100; background:rgba(253,250,244,0.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; padding:0 5%; height:68px; }
+.nav-logo { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--forest); letter-spacing:0.02em; }
+.nav-logo span { color:var(--gold); }
+.nav-links { display:flex; gap:28px; list-style:none; }
+.nav-links a { font-size:13px; font-weight:500; color:var(--text-muted); text-decoration:none; letter-spacing:0.05em; text-transform:uppercase; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold); }
+.nav-cta { background:var(--forest) !important; color:var(--gold-light) !important; padding:8px 18px; border-radius:4px; }
+.nav-shop { color:var(--gold) !important; }
+
+/* HERO */
+.hero { min-height:100vh; display:flex; align-items:center; padding:120px 5% 80px; position:relative; overflow:hidden; }
+.hero::before { content:''; position:absolute; top:0; right:0; width:55%; height:100%; background:linear-gradient(135deg,var(--forest) 0%,var(--forest-mid) 60%,#1A4030 100%); clip-path:polygon(12% 0,100% 0,100% 100%,0% 100%); }
+.hero-content { position:relative; z-index:2; max-width:520px; }
+.hero-badge { display:inline-flex; align-items:center; gap:8px; background:var(--gold-pale); border:1px solid var(--border); border-radius:100px; padding:6px 16px; font-size:12px; font-weight:500; color:var(--forest); letter-spacing:0.05em; text-transform:uppercase; margin-bottom:28px; }
+.hero-badge::before { content:'●'; color:var(--gold); font-size:8px; }
+h1 { font-family:'Cormorant Garamond',serif; font-size:clamp(42px,5vw,68px); font-weight:600; line-height:1.08; color:var(--forest); margin-bottom:12px; }
+h1 .highlight { color:var(--gold); }
+.hero-sub { font-size:16px; color:var(--text-muted); line-height:1.7; margin-bottom:40px; max-width:440px; }
+.hero-btns { display:flex; gap:14px; flex-wrap:wrap; }
+.btn-primary { background:var(--gold); color:var(--dark); padding:14px 28px; border-radius:4px; font-size:14px; font-weight:500; text-decoration:none; transition:background 0.2s; }
+.btn-primary:hover { background:#B08B40; }
+.btn-outline { border:1.5px solid var(--forest); color:var(--forest); padding:14px 28px; border-radius:4px; font-size:14px; font-weight:500; text-decoration:none; transition:background 0.2s; }
+.btn-outline:hover { background:var(--forest); color:var(--gold-light); }
+.hero-right { position:absolute; right:5%; top:50%; transform:translateY(-50%); z-index:3; display:flex; flex-direction:column; gap:16px; }
+.hero-stat { background:rgba(255,255,255,0.08); border:1px solid rgba(192,155,78,0.35); border-radius:8px; padding:18px 24px; text-align:center; color:var(--white); min-width:155px; }
+.hero-stat .num { font-family:'Cormorant Garamond',serif; font-size:32px; font-weight:600; color:var(--gold-light); display:block; }
+.hero-stat .lbl { font-size:10px; letter-spacing:0.08em; text-transform:uppercase; opacity:0.7; margin-top:4px; display:block; }
+
+/* SECTION */
+section { padding:96px 5%; }
+.section-label { font-size:11px; font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:12px; }
+h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(32px,4vw,48px); font-weight:600; color:var(--forest); line-height:1.15; margin-bottom:20px; }
+.section-intro { font-size:16px; color:var(--text-muted); line-height:1.75; max-width:620px; }
+
+/* MISSION BANNER */
+.mission-banner { background:var(--forest); padding:48px 5%; text-align:center; }
+.mission-banner h2 { color:var(--gold-light); margin-bottom:16px; font-size:clamp(22px,3vw,36px); }
+.mission-banner p { color:rgba(255,255,255,0.75); font-size:17px; line-height:1.8; max-width:780px; margin:0 auto; font-style:italic; }
+.mission-banner p strong { color:var(--gold); font-style:normal; }
+
+/* ABOUT */
+#about { background:var(--white); }
+.about-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; align-items:center; margin-top:56px; }
+.about-photo { width:100%; max-width:400px; aspect-ratio:3/4; border-radius:12px; overflow:hidden; position:relative; box-shadow:0 20px 60px rgba(30,58,47,0.2); }
+.about-photo img { width:100%; height:100%; object-fit:cover; object-position:top center; }
+.about-photo-border { position:absolute; inset:12px; border:1.5px solid rgba(192,155,78,0.5); border-radius:8px; pointer-events:none; }
+.about-text p { font-size:15px; color:var(--text-muted); line-height:1.8; margin-bottom:14px; }
+.about-tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+.tag { background:var(--gold-pale); border:1px solid var(--border); color:var(--forest); font-size:12px; font-weight:500; padding:6px 16px; border-radius:100px; }
+
+/* FHG */
+#fhg { background:var(--cream); }
+.founder-card { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:28px 32px; margin:36px 0 48px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; }
+.founder-avatar { width:64px; height:64px; background:var(--forest); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:600; color:var(--gold-light); flex-shrink:0; }
+.fhg-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:0; }
+.fhg-card { background:var(--white); border:1px solid var(--border); border-radius:10px; padding:32px 24px; position:relative; overflow:hidden; transition:transform 0.2s,box-shadow 0.2s; }
+.fhg-card:hover { transform:translateY(-4px); box-shadow:0 12px 40px rgba(30,58,47,0.1); }
+.fhg-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--gold),var(--gold-light)); }
+.fhg-icon { font-size:26px; margin-bottom:16px; display:block; }
+.fhg-card h3 { font-family:'Cormorant Garamond',serif; font-size:19px; font-weight:600; color:var(--forest); margin-bottom:10px; }
+.fhg-card p { font-size:13.5px; color:var(--text-muted); line-height:1.75; }
+.fhg-vows { background:var(--forest); border-radius:12px; padding:36px 40px; margin-top:48px; }
+.fhg-vows h3 { font-family:'Cormorant Garamond',serif; font-size:26px; color:var(--gold-light); margin-bottom:20px; }
+.vow-item { display:flex; align-items:flex-start; gap:10px; margin-bottom:12px; font-size:14px; color:rgba(255,255,255,0.8); line-height:1.6; }
+.vow-dot { color:var(--gold); font-size:10px; margin-top:4px; flex-shrink:0; }
+
+/* NEOLIFE COMPENSATION */
+#compensation { background:var(--white); }
+.comp-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; margin-top:48px; }
+.comp-card { border:1px solid var(--border); border-radius:10px; padding:28px 24px; }
+.comp-card h3 { font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--forest); margin-bottom:10px; }
+.comp-card p { font-size:13.5px; color:var(--text-muted); line-height:1.75; }
+.rank-table { width:100%; border-collapse:collapse; margin-top:40px; font-size:14px; }
+.rank-table th { background:var(--forest); color:var(--gold-light); padding:12px 16px; text-align:left; font-weight:500; font-size:12px; letter-spacing:0.05em; }
+.rank-table td { padding:10px 16px; border-bottom:1px solid var(--border); color:var(--text); }
+.rank-table tr:nth-child(even) td { background:var(--cream); }
+.bonus-badge { display:inline-block; background:var(--gold-pale); border:1px solid var(--border); color:var(--forest); font-weight:600; padding:3px 10px; border-radius:100px; font-size:12px; }
+
+/* PRODUCTS */
+#products { background:var(--forest); }
+#products .section-label { color:var(--gold-light); }
+#products h2 { color:var(--white); }
+#products .section-intro { color:rgba(255,255,255,0.65); }
+.shop-cta { margin:32px 0 48px; display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.products-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+.product-card { background:rgba(255,255,255,0.06); border:1px solid rgba(192,155,78,0.2); border-radius:10px; padding:24px 20px; transition:background 0.2s,border-color 0.2s; }
+.product-card:hover { background:rgba(255,255,255,0.1); border-color:rgba(192,155,78,0.5); }
+.product-emoji { font-size:30px; display:block; margin-bottom:14px; }
+.product-card h3 { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--gold-light); margin-bottom:8px; }
+.product-card p { font-size:12.5px; color:rgba(255,255,255,0.55); line-height:1.65; }
+.product-badge { display:inline-block; margin-top:14px; font-size:10px; font-weight:500; color:var(--gold); letter-spacing:0.05em; text-transform:uppercase; }
+
+/* TESTIMONIALS */
+#testimonials { background:var(--white); }
+.testimonials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:56px; }
+.testimonial-card { background:var(--cream); border:1px solid var(--border); border-radius:10px; padding:28px 24px; }
+.quote-mark { font-family:'Cormorant Garamond',serif; font-size:60px; line-height:0.6; color:var(--gold-light); margin-bottom:14px; display:block; }
+.testimonial-text { font-size:14px; color:var(--text-muted); line-height:1.8; font-style:italic; margin-bottom:20px; }
+.testimonial-author { display:flex; align-items:center; gap:12px; }
+.author-avatar { width:38px; height:38px; border-radius:50%; background:var(--forest); display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:500; color:var(--gold-light); flex-shrink:0; }
+.author-name { font-size:14px; font-weight:500; color:var(--forest); }
+.author-role { font-size:12px; color:var(--text-muted); margin-top:2px; }
+.stars { color:var(--gold); font-size:13px; margin-bottom:12px; }
+
+/* CONTACT */
+#contact { background:var(--cream); }
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:72px; margin-top:56px; align-items:start; }
+.contact-info h3 { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:600; color:var(--forest); margin-bottom:16px; }
+.contact-info p { font-size:15px; color:var(--text-muted); line-height:1.75; margin-bottom:28px; }
+.contact-item { display:flex; align-items:center; gap:16px; margin-bottom:18px; }
+.contact-icon { width:44px; height:44px; background:var(--gold-pale); border:1px solid var(--border); border-radius:8px; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.contact-item-text .label { font-size:11px; font-weight:500; text-transform:uppercase; letter-spacing:0.08em; color:var(--gold); margin-bottom:3px; }
+.contact-item-text a, .contact-item-text span { font-size:14px; color:var(--forest); font-weight:500; text-decoration:none; }
+.contact-item-text a:hover { color:var(--gold); }
+.contact-form { background:var(--white); border:1px solid var(--border); border-radius:12px; padding:36px 32px; }
+.contact-form h3 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:600; color:var(--forest); margin-bottom:24px; }
+.form-group { margin-bottom:18px; }
+.form-group label { display:block; font-size:11px; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; color:var(--text-muted); margin-bottom:7px; }
+.form-group input, .form-group textarea, .form-group select { width:100%; padding:11px 13px; border:1px solid rgba(0,0,0,0.12); border-radius:6px; font-family:'DM Sans',sans-serif; font-size:14px; color:var(--text); background:var(--cream); outline:none; transition:border-color 0.2s; appearance:none; }
+.form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color:var(--gold); }
+.form-group textarea { resize:vertical; min-height:100px; }
+.form-submit { width:100%; background:var(--forest); color:var(--gold-light); border:none; padding:14px; border-radius:6px; font-family:'DM Sans',sans-serif; font-size:14px; font-weight:500; cursor:pointer; transition:background 0.2s; margin-top:6px; }
+.form-submit:hover { background:var(--forest-light); }
+
+/* FOOTER */
+footer { background:var(--dark); color:rgba(255,255,255,0.5); padding:36px 5%; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+.footer-logo { font-family:'Cormorant Garamond',serif; font-size:20px; color:var(--white); font-weight:600; }
+.footer-logo span { color:var(--gold); }
+footer p { font-size:13px; }
+.footer-links { display:flex; gap:20px; list-style:none; }
+.footer-links a { color:rgba(255,255,255,0.4); font-size:13px; text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--gold); }
+
+/* WHATSAPP */
+.whatsapp-float { position:fixed; bottom:28px; right:28px; z-index:200; background:#25D366; color:white; width:56px; height:56px; border-radius:50%; display:flex; align-items:center; justify-content:center; text-decoration:none; font-size:26px; box-shadow:0 4px 20px rgba(37,211,102,0.4); transition:transform 0.2s; }
+.whatsapp-float:hover { transform:scale(1.08); }
+
+@media (max-width:900px) {
+  .hero::before { width:100%; clip-path:none; opacity:0.08; }
+  .hero-right { position:static; transform:none; flex-direction:row; flex-wrap:wrap; margin-top:40px; }
+  .about-grid,.contact-grid { grid-template-columns:1fr; gap:36px; }
+  .fhg-grid,.testimonials-grid,.comp-grid { grid-template-columns:1fr; }
+  .products-grid { grid-template-columns:repeat(2,1fr); }
+  .nav-links { display:none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Adebola <span>Isiak</span></div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#fhg">FHG</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#compensation">Earn</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="https://shopneolife.com/adebolaisiak" target="_blank" class="nav-shop">🛒 Shop</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Faitheroic Generation · Neolife Distributor</div>
+    <h1>Adebola<br><span class="highlight">Isiak</span></h1>
+    <p class="hero-sub">Empowering individuals through health, digital skills, and financial freedom. Join a movement that is building healthier and wealthier lives across Nigeria and beyond.</p>
+    <div class="hero-btns">
+      <a href="https://shopneolife.com/adebolaisiak" target="_blank" class="btn-primary">🛒 Shop Neolife</a>
+      <a href="#contact" class="btn-outline">Get In Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-stat"><span class="num">FHG</span><span class="lbl">Faitheroic Generation</span></div>
+    <div class="hero-stat"><span class="num">67+</span><span class="lbl">Years Neolife Legacy</span></div>
+    <div class="hero-stat"><span class="num">50+</span><span class="lbl">Countries Neolife Operates</span></div>
+  </div>
+</section>
+
+<!-- MISSION BANNER -->
+<div class="mission-banner">
+  <h2>My Mission</h2>
+  <p>"To become a <strong>leader</strong> and produce more leaders — giving the world a <strong>healthier and wealthier</strong> place to live."</p>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Who I Am</div>
+  <h2>About Adebola Isiak</h2>
+  <div class="about-grid">
+    <div class="about-photo">
+      <img src="PHOTO_PLACEHOLDER" alt="Adebola Isiak" />
+      <div class="about-photo-border"></div>
+    </div>
+    <div class="about-text">
+      <h2>A Leader Building Leaders</h2>
+      <p>Adebola Isiak is a driven young entrepreneur and wellness advocate based in Nigeria. As a proud member of Faitheroic Generation (FHG) and an independent Neolife distributor, Adebola is on a mission to empower people through health, digital skills, and financial opportunity.</p>
+      <p>With a deep belief that true wealth begins with good health, Adebola combines cutting-edge digital marketing knowledge from FHG training with the power of Neolife's 67-year legacy in science-based nutrition — creating a unique platform to transform lives.</p>
+      <p>Whether you want better health, extra income, or to build your own business, Adebola is here to guide you every step of the way.</p>
+      <div class="about-tags">
+        <span class="tag">FHG Member</span>
+        <span class="tag">Neolife Distributor</span>
+        <span class="tag">Digital Marketer</span>
+        <span class="tag">Wellness Advocate</span>
+        <span class="tag">Leader &amp; Mentor</span>
+        <span class="tag">Entrepreneur</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FHG -->
+<section id="fhg">
+  <div class="section-label">Faitheroic Generation</div>
+  <h2>About FHG</h2>
+  <p class="section-intro">Faitheroic Generation (FHG) is a Nigerian-based entrepreneurship and network marketing organization. It empowers individuals through digital skills, online business, and a partnership with Neolife where members earn PV bonuses.</p>
+
+  <div class="founder-card">
+    <div class="founder-avatar">JA</div>
+    <div>
+      <div style="font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);margin-bottom:5px;">Founded By</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--forest);">Jagunmolu Abdulfatai</div>
+      <div style="font-size:14px;color:var(--text-muted);margin-top:3px;">Founder & Visionary Leader — Faitheroic Generation (FHG TEAM), Nigeria</div>
+    </div>
+  </div>
+
+  <div class="fhg-grid">
+    <div class="fhg-card"><span class="fhg-icon">💻</span><h3>Online Business</h3><p>FHG trains members in proven online business models that generate real, sustainable income — no experience required to start.</p></div>
+    <div class="fhg-card"><span class="fhg-icon">🎯</span><h3>Freelancing on Fiverr</h3><p>Members learn how to create Fiverr accounts, build professional gig profiles, and earn in dollars by selling digital services globally.</p></div>
+    <div class="fhg-card"><span class="fhg-icon">📣</span><h3>Digital Marketing</h3><p>Comprehensive training in social media marketing, email marketing, Facebook ads, sales funnels, content marketing, and graphics design.</p></div>
+    <div class="fhg-card"><span class="fhg-icon">🌿</span><h3>Neolife Partnership</h3><p>FHG officially partners with Neolife. Members earn monthly bonuses by accumulating PV (Point Value) through Neolife product purchases and sales.</p></div>
+    <div class="fhg-card"><span class="fhg-icon">💰</span><h3>PV Bonus System</h3><p>Every Neolife product purchase earns PV. With 100 Personal PV + 250 Qualified PV, you start earning Sales Volume Bonuses up to 25%.</p></div>
+    <div class="fhg-card"><span class="fhg-icon">🤝</span><h3>Community &amp; Values</h3><p>FHG members live by 20 powerful vows — choosing integrity, proactiveness, service, and a life of impact over personal gain alone.</p></div>
+  </div>
+
+  <div class="fhg-vows">
+    <h3>The FHG Spirit — 20 Vows</h3>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px 32px;">
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to be pro-active</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to lead an excellent personal life</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to provide outstanding service for my buyers</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to be successful in Neolife business</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to sacrifice my time and effort to help others succeed</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to be a leading star</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to change my family, city, country and the world</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to live a life of integrity</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to be a team player</span></div>
+      <div class="vow-item"><span class="vow-dot">●</span><span>I choose to love myself, my family, and my team unconditionally</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEOLIFE COMPENSATION -->
+<section id="compensation">
+  <div class="section-label">How You Earn</div>
+  <h2>Neolife Compensation Plan</h2>
+  <p class="section-intro">Neolife's fair and rewarding plan gives you 5 ways to earn. The more you grow your network and accumulate PV, the higher your bonuses. This is how members build real financial freedom.</p>
+
+  <div class="comp-grid">
+    <div class="comp-card"><h3>1. Retail &amp; Member Profit</h3><p>Earn immediately by selling Neolife products. Keep the difference between the Suggested Retail Price (SRP) and your Distributor Price (DP).</p></div>
+    <div class="comp-card"><h3>2. Sales Volume Bonus (SVB)</h3><p>Earn up to 25% on your purchases and your downline's purchases. Requires 100 Personal PV and 250 Qualified PV minimum to qualify each month.</p></div>
+    <div class="comp-card"><h3>3. Leadership Development Bonus</h3><p>Once you become a Director (4,000 QPV), earn bonuses up to 6% on three levels of qualified Directors you develop in your team.</p></div>
+    <div class="comp-card"><h3>4. Network Development Bonus</h3><p>At President's Team rank, earn up to 3% bonus on your entire unlimited network. Combined with LDB, this means up to 9% on qualified Directors.</p></div>
+  </div>
+
+  <table class="rank-table" style="margin-top:40px;">
+    <thead>
+      <tr><th>Rank</th><th>Monthly Qualified PV</th><th>Sales Volume Bonus</th><th>Est. Annual Income</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Distributor</td><td>250 QPV</td><td><span class="bonus-badge">3%</span></td><td>Getting started</td></tr>
+      <tr><td>Manager</td><td>500 QPV</td><td><span class="bonus-badge">5%</span></td><td>Side income</td></tr>
+      <tr><td>Senior Manager</td><td>1,000 QPV</td><td><span class="bonus-badge">10%</span></td><td>Meaningful income</td></tr>
+      <tr><td>Executive Manager</td><td>2,000 QPV</td><td><span class="bonus-badge">15–20%</span></td><td>Strong income</td></tr>
+      <tr><td>Director</td><td>4,000 QPV</td><td><span class="bonus-badge">25%</span></td><td>$10,000+/year</td></tr>
+      <tr><td>1 Ruby Director</td><td>20,000 GPV</td><td><span class="bonus-badge">25% + LDB</span></td><td>$20,000+/year</td></tr>
+      <tr><td>4 Ruby Director</td><td>100,000 GPV</td><td><span class="bonus-badge">25% + LDB + NDB</span></td><td>$60,000+/year</td></tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:32px;text-align:center;">
+    <a href="https://shopneolife.com/adebolaisiak/enrollment/enrollmentconfiguration" target="_blank" class="btn-primary" style="display:inline-block;">Join as Distributor — Sign Up &amp; Save</a>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="products">
+  <div class="section-label">Neolife Products</div>
+  <h2>Shop Premium Nutrition</h2>
+  <p class="section-intro">Neolife has pioneered whole food nutritional supplementation since 1958 — 67 years of science-backed wellness. Shop directly through Adebola's store with a 90-day money-back guarantee.</p>
+
+  <div class="shop-cta">
+    <a href="https://shopneolife.com/adebolaisiak" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--dark);padding:16px 32px;border-radius:6px;font-size:15px;font-weight:500;text-decoration:none;">🛒 &nbsp;Shop All Products</a>
+    <span style="font-size:13px;color:rgba(255,255,255,0.5);">shopneolife.com/adebolaisiak · 90-day money-back guarantee</span>
+  </div>
+
+  <div class="products-grid">
+    <div class="product-card"><span class="product-emoji">💊</span><h3>Vitamins &amp; Minerals</h3><p>Complete daily multivitamins and targeted mineral supplements backed by 67 years of nutritional science.</p><span class="product-badge">Best Seller</span></div>
+    <div class="product-card"><span class="product-emoji">🥤</span><h3>Protein Shakes</h3><p>High-quality whole food protein formulas for weight management, muscle support, and sustained daily energy.</p><span class="product-badge">Popular</span></div>
+    <div class="product-card"><span class="product-emoji">⚖️</span><h3>Weight Management</h3><p>Science-backed weight management solutions including the NeoFit90 challenge programme for real, lasting results.</p><span class="product-badge">NeoFit90</span></div>
+    <div class="product-card"><span class="product-emoji">🫀</span><h3>Heart Health</h3><p>Clinically researched cardiovascular support formulas to maintain healthy blood pressure and circulation.</p><span class="product-badge">Clinically Backed</span></div>
+    <div class="product-card"><span class="product-emoji">🦠</span><h3>Digestive Health</h3><p>Probiotic and digestive enzyme formulas to support gut health, nutrient absorption, and overall wellbeing.</p><span class="product-badge">Essential</span></div>
+    <div class="product-card"><span class="product-emoji">🛡️</span><h3>Immunity</h3><p>Powerful immune-boosting formulas with natural whole food ingredients to keep you strong and resilient.</p><span class="product-badge">Natural</span></div>
+    <div class="product-card"><span class="product-emoji">⚡</span><h3>Energy &amp; Fitness</h3><p>NeoLife Sport range for performance, endurance, flexibility, and recovery — for active, ambitious lifestyles.</p><span class="product-badge">NeoLife Sport</span></div>
+    <div class="product-card"><span class="product-emoji">🧠</span><h3>Sharper Mind</h3><p>Nootropic and cognitive support supplements to boost focus, memory, and long-term mental clarity.</p><span class="product-badge">Brain Boost</span></div>
+    <div class="product-card"><span class="product-emoji">🦴</span><h3>Bone &amp; Joint</h3><p>Targeted support for strong bones, flexible joints, and long-term mobility as you live an active life.</p><span class="product-badge">Mobility</span></div>
+    <div class="product-card"><span class="product-emoji">👶</span><h3>Children's Health</h3><p>Specially formulated nutrition for growing children to support healthy development, immunity, and energy.</p><span class="product-badge">Kids</span></div>
+    <div class="product-card"><span class="product-emoji">🤱</span><h3>Prenatal</h3><p>Essential prenatal nutrition for expectant mothers, supporting both mother and baby's health throughout pregnancy.</p><span class="product-badge">Mothers</span></div>
+    <div class="product-card"><span class="product-emoji">✨</span><h3>Skin Care</h3><p>Organic, science-backed skin care products for a natural, radiant glow — beauty that goes beyond the surface.</p><span class="product-badge">Organic</span></div>
+    <div class="product-card"><span class="product-emoji">👨</span><h3>Men's Health</h3><p>Targeted nutritional support for men's vitality, strength, hormonal balance, and overall performance.</p><span class="product-badge">Men</span></div>
+    <div class="product-card"><span class="product-emoji">👩</span><h3>Women's Health</h3><p>Specially tailored formulas supporting women's hormonal health, energy, beauty, and long-term wellness.</p><span class="product-badge">Women</span></div>
+    <div class="product-card"><span class="product-emoji">🌬️</span><h3>Respiratory Health</h3><p>Targeted support for healthy lungs, breathing, and respiratory function in everyday environments.</p><span class="product-badge">Breathing</span></div>
+    <div class="product-card"><span class="product-emoji">🏠</span><h3>Home Care</h3><p>Neolife's eco-friendly, toxin-free home care products for a cleaner, healthier living environment.</p><span class="product-badge">Eco-Friendly</span></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-label">What Clients Say</div>
+  <h2>Real Results, Real People</h2>
+  <p class="section-intro">Hear from people whose lives have been transformed through Adebola's guidance and Neolife's exceptional products.</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <span class="quote-mark">"</span><div class="stars">★★★★★</div>
+      <p class="testimonial-text">Adebola introduced me to Neolife and my life has not been the same. My energy is incredible and I have lost 8kg in three months without stress. Forever grateful.</p>
+      <div class="testimonial-author"><div class="author-avatar">FA</div><div><div class="author-name">Fatimah A.</div><div class="author-role">Lagos, Nigeria</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <span class="quote-mark">"</span><div class="stars">★★★★★</div>
+      <p class="testimonial-text">I joined FHG through Adebola and within six months I was earning a consistent side income while improving my health. The community is warm and very supportive.</p>
+      <div class="testimonial-author"><div class="author-avatar">KO</div><div><div class="author-name">Kunle O.</div><div class="author-role">Abuja, Nigeria</div></div></div>
+    </div>
+    <div class="testimonial-card">
+      <span class="quote-mark">"</span><div class="stars">★★★★★</div>
+      <p class="testimonial-text">The Neolife protein shakes are amazing. Adebola walked me through every product with patience and care. I feel stronger, healthier and more confident than ever.</p>
+      <div class="testimonial-author"><div class="author-avatar">BI</div><div><div class="author-name">Blessing I.</div><div class="author-role">Port Harcourt, Nigeria</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Reach Out</div>
+  <h2>Contact Adebola</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's Start Your Journey</h3>
+      <p>Whether you are interested in Neolife products, the FHG business opportunity, digital marketing training, or simply want to learn more — Adebola is ready to help.</p>
+      <div class="contact-item"><div class="contact-icon">📧</div><div class="contact-item-text"><div class="label">Email</div><a href="mailto:adebolaisiak29@gmail.com">adebolaisiak29@gmail.com</a></div></div>
+      <div class="contact-item"><div class="contact-icon">💬</div><div class="contact-item-text"><div class="label">WhatsApp</div><a href="https://wa.me/2347057689080" target="_blank">+234 705 768 9080</a></div></div>
+      <div class="contact-item"><div class="contact-icon">🛒</div><div class="contact-item-text"><div class="label">Neolife Store</div><a href="https://shopneolife.com/adebolaisiak" target="_blank">shopneolife.com/adebolaisiak</a></div></div>
+      <div class="contact-item"><div class="contact-icon">📍</div><div class="contact-item-text"><div class="label">Location</div><span>Nigeria</span></div></div>
+    </div>
+    <div class="contact-form">
+      <h3>Send a Message</h3>
+      <div class="form-group"><label>Full Name</label><input type="text" placeholder="Your full name" /></div>
+      <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="Your phone number" /></div>
+      <div class="form-group"><label>Interest</label>
+        <select>
+          <option value="">Select an option...</option>
+          <option>Neolife Products</option>
+          <option>FHG Business Opportunity</option>
+          <option>Digital Marketing Training</option>
+          <option>Become a Neolife Distributor</option>
+          <option>General Enquiry</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell me how I can help you..."></textarea></div>
+      <button class="form-submit" onclick="submitForm()">Send Message via WhatsApp</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Adebola <span>Isiak</span></div>
+  <p>© 2026 Adebola Isiak · Faitheroic Generation Member · Neolife Independent Distributor</p>
+  <ul class="footer-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#fhg">FHG</a></li>
+    <li><a href="#products">Products</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</footer>
+
+<a href="https://wa.me/2347057689080" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M11.999 2C6.477 2 2 6.484 2 12.017c0 1.99.52 3.86 1.428 5.48L2.003 22l4.633-1.402A9.97 9.97 0 0011.999 22c5.523 0 10-4.484 10-10.017C21.999 6.477 17.523 2 11.999 2zm0 18.334a8.293 8.293 0 01-4.244-1.163l-.305-.18-3.15.954.924-3.229-.197-.324A8.29 8.29 0 013.68 12c0-4.594 3.726-8.334 8.32-8.334 4.594 0 8.32 3.74 8.32 8.334 0 4.595-3.726 8.334-8.32 8.334z"/>
+  </svg>
+</a>
+
+<script>
+function submitForm() {
+  var name = document.querySelector('input[type="text"]').value || 'a visitor';
+  var phone = document.querySelector('input[type="tel"]').value || 'not provided';
+  var interest = document.querySelector('select').value || 'General Enquiry';
+  var message = document.querySelector('textarea').value || '';
+  var text = encodeURIComponent('Hello Adebola! 👋\n\nMy name is ' + name + '.\nPhone: ' + phone + '\nI am interested in: ' + interest + '\n\n' + message);
+  window.open('https://wa.me/2347057689080?text=' + text, '_blank');
+}
+</script>
+</body>
+</html>
